@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Caesar Cipher Coding Challenge Example" />
+        <meta name="author" content="Chris Nelsen" />
+        <title>Caeser Cipher</title>
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;400;900&amp;display=swap" rel="stylesheet">
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <link href="css/custom.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Page content-->
+        <div class="container-fluid p-0">
+            <div class="row m-0">
+                <div class="col-lg-3 col-md-5 col-sm-5 col-xs-12 bg-light p-3" style="height: 100vh;">
+                    <h2>Overview</h2>
+                    <hr>
+                    <h5>Backgound</h5>
+                    <p>Julius Caesar invented the worlds first encryption algorithm and used it to protect confidential information.  The original ceaser cipher shifted each letter within a scentence by a certain number called a <i>key</i> or <i>cipher</i>.</p>
+                    <br>
+                    <div class="container bg-dark">
+                    </div>
+                    <h5>Coding Problem</h5>
+                    <p>Create a function that will encode and decode a string based on a numeric cipher value.</p>
+                    <br>
+                    <h5>Parameters</h5>
+                    <p>All output should be valid ASCII characters.</p>
+                    <hr>
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">View Code</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLabel">Code</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p> function Cipher() { <br>
+                                            &ensp; // Get Values from user <br>
+                                            &ensp; message = document.getElementById('message').value; <br>
+                                            &ensp; key = document.getElementById('key').value; <br>
+                                            &ensp; isEncrypt = document.getElementById('flexRadioDefault1').checked; <br>
+                                            <br>
+                                            &ensp; // Create encrypted message variable that will be returned to user <br>
+                                            &ensp; newMessage = ""; <br>
+                                            <br>
+                                            // Loop through each character in message <br>
+                                            for (let i = 0; i < message.length; i++) { <br>
+                                                &ensp; number = message[i].charCodeAt(0); <br>
+                                            <br>
+                                                // Ensure the current character is a valid ASCII character...
+                                                if(number >= 0 & number <= 255){
+                                                    if(isEncrypt){
+                                                        number = parseInt(number) + parseInt(key)
+                                                    }else{
+                                                        number = parseInt(number) - parseInt(key)
+                                                    }
+                                                }
+                                      
+                                            // Ensure the new ciphered character is also a valid ASCII character
+                                            if(number < 0){
+                                              while(number < 0){
+                                                number += 255;
+                                              }
+                                            }else if(number > 255){
+                                              while(number > 255){
+                                                number -= 255;
+                                              }
+                                            }
+                                          }
+                                      
+                                          // Add character to the new value
+                                          newMessage += String.fromCharCode(number)
+                                      
+                                          }
+                                        // Return message
+                                        document.getElementById('newMessage').value = newMessage;
+                                      }</p>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9 col-md-7 col-sm-7  p-5 background">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1>Caeser Cipher</h1>
+                          </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-4">
+                                <div class="row mb-3">
+                                    <div class="col">
+                                        <label for="message" class="form-label">Original Message:</label>
+                                        <input type="text" class="form-control form-control-lg" id="message" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="col">
+                                        <div class="row justify-content-center">
+                                            <label for="key" class="col-auto col-form-label">Key:</label>
+                                            <div class="col-auto">
+                                                <input type="number" class="form-control" id="key" min="0" max="999" value="0" style="width: 75px;"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col my-auto">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="radioButton" id="flexRadioDefault1" checked>
+                                            <label class="form-check-label" for="flexRadioDefault1">Encode</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="radioButton" id="flexRadioDefault2">
+                                            <label class="form-check-label" for="flexRadioDefault2">Decode</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item p-4">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="message" class="form-label">New Message:</label>
+                                        <input type="text" class="form-control form-control-lg" id="newMessage"readonly>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item p-3">
+                                <div class="row">
+                                    <div class="col d-flex justify-content-center">
+                                        <input type="submit" class="btn btn-primary" value="Cipher" onclick="Cipher();">
+                                    </div>
+                                </div>
+                            </li>
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- Page Specific JS-->
+        <script src="js/caesarcipher.js"></script>
+    </body>
+</html>
