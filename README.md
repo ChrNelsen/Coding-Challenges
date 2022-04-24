@@ -1,14 +1,14 @@
 # Coding-Challenges
+A compilation of coding challenges solved by yours truly.
 
 <!-- CODING CHALLENGES TABLE -->
 | No.  | Challenge | Description | Language | UI |
 | ---- | --------- | ----------- | -------- | -- |
 | 1   | [CaeserCipher](https://github.com/ChrNelsen/Coding-Challenges/tree/main/CeaserCipher) | Encrypt a string based on a single numeric value. | javascript | Web Interface |
 
-<!-- CONTACT -->
-## Contact
-
-Chris Nelsen - [portfolio](https://www.chrisnelsen.dev)
+<!-- About -->
+## About
+Created by [Chris Nelsen](https://www.chrisnelsen.dev)
 
 Project Link: [https://github.com/ChrNelsen/Coding-Challenges](https://github.com/ChrNelsen/Coding-Challenges)
 
