@@ -38,13 +38,13 @@
                             <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">View Code</button>
                             <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
+                                <div class="modal-dialog modal-dialog-scrollable">
                                   <div class="modal-content">
                                     <div class="modal-header">
                                       <h5 class="modal-title" id="exampleModalLabel">Code</h5>
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body overflow-scroll text-nowrap">
                                         <p> function Cipher() { <br>
                                             &ensp; // Get Values from user <br>
                                             &ensp; message = document.getElementById('message').value; <br>
@@ -54,38 +54,37 @@
                                             &ensp; // Create encrypted message variable that will be returned to user <br>
                                             &ensp; newMessage = ""; <br>
                                             <br>
-                                            // Loop through each character in message <br>
-                                            for (let i = 0; i < message.length; i++) { <br>
-                                                &ensp; number = message[i].charCodeAt(0); <br>
+                                            &ensp; // Loop through each character in message <br>
+                                            &ensp; for (let i = 0; i < message.length; i++) { <br>
+                                            &ensp; &ensp; number = message[i].charCodeAt(0); <br>
                                             <br>
-                                                // Ensure the current character is a valid ASCII character...
-                                                if(number >= 0 & number <= 255){
-                                                    if(isEncrypt){
-                                                        number = parseInt(number) + parseInt(key)
-                                                    }else{
-                                                        number = parseInt(number) - parseInt(key)
-                                                    }
-                                                }
+                                            &ensp; &ensp; // Ensure the current character is a valid ASCII character... <br>
+                                            &ensp; &ensp; if(number >= 0 & number <= 255){ <br>
+                                            &ensp; &ensp; &ensp; if(isEncrypt){ <br>
+                                            &ensp; &ensp; &ensp; &ensp; number = parseInt(number) + parseInt(key) <br>
+                                            &ensp; &ensp; &ensp; }else{ <br>
+                                            &ensp; &ensp; &ensp; &ensp; number = parseInt(number) - parseInt(key) <br>
+                                            &ensp; &ensp; &ensp; } <br>
+                                            <br>
+                                            &ensp; &ensp; &ensp; // Ensure the new ciphered character is also a valid ASCII character <br>
+                                            &ensp; &ensp; &ensp; if(number < 0){ <br>
+                                            &ensp; &ensp; &ensp; &ensp; while(number < 0){ <br>
+                                            &ensp; &ensp; &ensp; &ensp; &ensp; number += 255; <br>
+                                            &ensp; &ensp; &ensp; &ensp; } <br>
+                                            &ensp; &ensp; &ensp; }else if(number > 255){ <br>
+                                            &ensp; &ensp; &ensp; &ensp; while(number > 255){ <br>
+                                            &ensp; &ensp; &ensp; &ensp; &ensp; number -= 255; <br>
+                                            &ensp; &ensp; &ensp; &ensp; } <br> 
+                                            &ensp; &ensp; &ensp; } <br>
+                                            &ensp; &ensp; } <br>
                                       
-                                            // Ensure the new ciphered character is also a valid ASCII character
-                                            if(number < 0){
-                                              while(number < 0){
-                                                number += 255;
-                                              }
-                                            }else if(number > 255){
-                                              while(number > 255){
-                                                number -= 255;
-                                              }
-                                            }
-                                          }
-                                      
-                                          // Add character to the new value
-                                          newMessage += String.fromCharCode(number)
-                                      
-                                          }
-                                        // Return message
-                                        document.getElementById('newMessage').value = newMessage;
-                                      }</p>
+                                            &ensp; &ensp; // Add character to the new value <br>
+                                            &ensp; &ensp; newMessage += String.fromCharCode(number) <br>
+                                            <br>
+                                            &ensp; } <br>
+                                            &ensp; // Return message <br>
+                                            &ensp; document.getElementById('newMessage').value = newMessage; <br>
+                                        }</p>
                                     </div>
                                   </div>
                                 </div>
