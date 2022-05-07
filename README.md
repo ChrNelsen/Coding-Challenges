@@ -4,7 +4,7 @@ A compilation of coding challenges solved by yours truly.
 <!-- CODING CHALLENGES TABLE -->
 | No.  | Challenge | Description | Language | UI |
 | ---- | --------- | ----------- | -------- | -- |
-| 1   | [Caeser Cipher](01%20Caeser%20Cipher) | Encrypt a string based on a single numeric value. | javascript | Web Interface |
+| 1   | [Caeser Cipher](01%20Caeser%20Cipher) | Encrypt a string based on a single numeric value. | javascript | [Web Interface](https://www.chrisnelsen.dev/coding%20challenges/01%20caeser%20cipher/)|
 
 <!-- About -->
 ## About
