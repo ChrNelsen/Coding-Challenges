@@ -1,3 +1,4 @@
-if ($(window).width() < 960) {
-    alert('Less than 960');
+function Focus () {
+    document.getElementById("message").focus();
+    window.scrollTo(0, document.body.scrollHeight);
 }
